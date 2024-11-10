@@ -1,0 +1,53 @@
+# Node modules
+node_modules/
+
+# Build output
+.next/
+out/
+
+# Dependency directories
+.pnp/
+.pnp.js
+
+# Static files
+*.log
+*.env.local
+.env
+.env.*.local
+.env.test
+.env.production
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local environment files
+.env.local
+.env.*.local
+.env.test.local
+.env.production.local
+
+# Output of 'npm pack'
+*.tgz
+
+# Optional npm cache directory
+.npm
+
+# Next.js cache
+.next/cache
+
+# TailwindCSS generated styles (if any)
+tailwind.config.js
+postcss.config.js
+
+# IDE specific files
+.vscode/
+.idea/
+
+# MacOS specific files
+.DS_Store
+
+# Ignore any custom build outputs if specified
+dist/
