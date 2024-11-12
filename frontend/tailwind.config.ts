@@ -1,18 +1,17 @@
-import type { Config } from "tailwindcss";
-
-export default {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+module.exports = {
+  content: ['./src/**/*.{js,jsx,ts,tsx}'], // Correct paths to scan for classes
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: '#1D4ED8',
+        secondary: '#6B7280',
+        background: '#F3F4F6',
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        heading: ['Roboto', 'sans-serif'],
       },
     },
   },
   plugins: [],
-} satisfies Config;
+}
