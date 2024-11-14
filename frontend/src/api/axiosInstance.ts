@@ -3,7 +3,7 @@ import store from '../store'
 import { RootState } from '../store'
 
 const axiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
 })
 
 axiosInstance.interceptors.request.use(
