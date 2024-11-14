@@ -5,6 +5,7 @@ import * as Yup from 'yup'
 import { login, selectAuth } from '../store/slices/authSlice'
 import { AppDispatch } from '../store'
 import { useRouter } from 'next/router'
+import Button from '../components/Button'
 
 const Login = () => {
   const dispatch = useDispatch<AppDispatch>()
@@ -25,71 +26,49 @@ const Login = () => {
       router.push('/contacts')
     }
   }
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-6">
-      <h1 className="text-4xl font-bold mb-6">Login</h1>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        {({ isSubmitting }) => (
-          <Form className="w-80 bg-white p-6 rounded-lg shadow-md">
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700">
-                Email
-              </label>
-              <Field
-                name="email"
-                type="email"
-                className="w-full p-2 border rounded mt-1"
-              />
-              <ErrorMessage
-                name="email"
-                component="div"
-                className="text-red-500 text-xs mt-1"
-              />
-            </div>
-            <div className="mb-6">
-              <label className="block text-sm font-medium text-gray-700">
-                Password
-              </label>
-              <Field
-                name="password"
-                type="password"
-                className="w-full p-2 border rounded mt-1"
-              />
-              <ErrorMessage
-                name="password"
-                component="div"
-                className="text-red-500 text-xs mt-1"
-              />
-            </div>
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+    <div className="flex justify-center items-center h-screen bg-gray-50">
+      <div className="w-full max-w-sm bg-white p-8 rounded-lg shadow-lg">
+        <h2 className="text-3xl font-bold mb-6 text-center text-gray-900">
+          Login
+        </h2>
+        <form className="space-y-4">
+          <div>
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="email"
             >
-              {isSubmitting ? 'Logging in...' : 'Login'}
-            </button>
-            {auth.error && (
-              <div className="text-red-500 text-center mt-4">{auth.error}</div>
-            )}
-          </Form>
-        )}
-      </Formik>
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              className="w-full mt-1 px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+          <div>
+            <label
+              className="block text-sm font-medium text-gray-700"
+              htmlFor="password"
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              className="w-full mt-1 px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+          </div>
+          <div className="pt-4">
+            <Button text="Login" onClick={() => {}} />
+          </div>
+        </form>
+      </div>
     </div>
   )
 }
 
 export default Login
-
-// pages/login.tsx
-/*import React from 'react'
-
-const Login = () => {
-  return <div>Login Page</div>
-}
-
-export default Login
-*/
