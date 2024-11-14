@@ -3,13 +3,12 @@ import React from 'react'
 interface ButtonProps {
   text: string
   onClick?: () => void
-  className?: string
 }
 
-const Button: React.FC<ButtonProps> = ({ text, onClick, className }) => (
+const Button: React.FC<ButtonProps> = ({ text, onClick }) => (
   <button
     onClick={onClick}
-    className={`px-8 py-3 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 text-lg ${className}`}
+    className={`px-6 py-2 bg-blue-600 text-white font-semibold rounded-full shadow-md transition duration-200 ease-in-out transform hover:bg-blue-700 hover:scale-105`}
   >
     {text}
   </button>
