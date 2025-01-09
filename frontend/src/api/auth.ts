@@ -1,12 +1,15 @@
-import axios from 'axios'
+import axiosInstance from './axiosInstance';
 
-export const loginUser = async (email: string, password: string) => {
-  const response = await axios.post(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/login`,
-    {
-      email,
-      password,
-    },
-  )
-  return response.data
+interface LoginResponse {
+  token: string;
 }
+
+export const loginUser = async (email: string, password: string): Promise<LoginResponse> => {
+  const { data } = await axiosInstance.post('/api/login', { email, password });
+  return data;
+};
+
+export const getUser = async (): Promise<{ email: string; name: string }> => {
+  const { data } = await axiosInstance.get('/api/user');
+  return data;
+};
