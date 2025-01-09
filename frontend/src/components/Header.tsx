@@ -1,42 +1,26 @@
-import React from 'react'
+import Link from 'next/link';
+import Image from 'next/image';
 
-const Header = () => {
-  return (
-    <header className="absolute left-[2.5%] right-[2.5%] top-[5.08%] bg-[#FBEEFF] rounded-[30px] h-[80px] flex items-center justify-between px-8">
-      {/* Logo */}
-      <div className="text-xl font-bold text-gray-800">BuildOnline</div>
+const Header = () => (
+  <header className="bg-purple-100 p-6 flex justify-between items-center shadow-lg">
+    <div className="flex items-center">
+      <Image src="/logo.svg" alt="BuildOnline Logo" width={40} height={40} />
+      <span className="ml-4 text-3xl font-extrabold text-gray-800">BuildOnline</span>
+    </div>
+    <nav className="flex gap-8">
+      <Link href="/contacts" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
+        Contacts
+      </Link>
+      <Link href="/notes" className="text-gray-700 hover:text-gray-900 font-medium text-lg">
+        Notes
+      </Link>
+      <Link href="/login">
+        <button className="bg-gradient-to-r from-purple-500 to-purple-700 text-white py-2 px-6 rounded-full font-semibold hover:shadow-xl">
+          Sign In
+        </button>
+      </Link>
+    </nav>
+  </header>
+);
 
-      {/* Navigation Links */}
-      <nav className="flex items-center space-x-10">
-        <a
-          href="#contacts"
-          className="text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-black font-medium text-lg"
-        >
-          Contacts
-        </a>
-        <a
-          href="#notes"
-          className="text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-black font-medium text-lg"
-        >
-          Notes
-        </a>
-        <a href="#login" className="text-black font-medium text-lg">
-          Log in
-        </a>
-      </nav>
-
-      {/* Sign in Button */}
-      <button
-        className="bg-[#9378FF] text-white font-medium text-lg rounded-full px-6 py-2 shadow-md transition hover:bg-purple-700"
-        style={{
-          width: '117px',
-          height: '49px',
-        }}
-      >
-        Sign in
-      </button>
-    </header>
-  )
-}
-
-export default Header
+export default Header;
