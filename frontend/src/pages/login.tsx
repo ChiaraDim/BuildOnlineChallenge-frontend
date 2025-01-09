@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 import { loginUser } from '../api/auth';
 
 const Login: React.FC = () => {
@@ -19,33 +20,38 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-purple-100 flex items-center justify-center">
-      <form onSubmit={handleLogin} className="bg-white p-12 rounded-2xl shadow-lg w-full max-w-md">
-        <h2 className="text-4xl font-bold text-center mb-8">Welcome</h2>
-        <input
-          type="email"
-          placeholder="john@doe.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          className="w-full border border-purple-300 px-4 py-3 rounded-lg mb-4 bg-purple-50 text-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-        />
-        <input
-          type="password"
-          placeholder="********"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          className="w-full border border-purple-300 px-4 py-3 rounded-lg mb-6 bg-purple-50 text-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-        />
-        <button
-          type="submit"
-          className="bg-gradient-to-r from-purple-500 to-purple-700 text-white py-3 px-6 rounded-full w-full text-lg font-semibold shadow-md hover:bg-purple-800 hover:shadow-xl"
-        >
-          Login
-        </button>
-      </form>
-    </div>
+    <>
+      <Head>
+        <title>Login | BuildOnline</title>
+      </Head>
+      <div className='min-h-[90vh] bg-white flex flex-col items-center pt-12'>
+        <h1 className='text-center font-display font-extrabold text-[39px] leading-[52px] text-[#120E21] mb-8'>
+          Welcome
+        </h1>
+        <form onSubmit={handleLogin} className='w-full max-w-[527px] space-y-8'>
+          <div className='space-y-4'>
+            <input
+              type='email'
+              placeholder='john@doe.com'
+              className='w-full h-[56px] rounded-lg bg-[#FBEEFF] text-[#99879D] text-[16px] px-4'
+            />
+            <input
+              type='password'
+              placeholder='********'
+              className='w-full h-[56px] rounded-lg bg-[#FBEEFF] text-[#99879D] text-[16px] px-4'
+            />
+          </div>
+          <div className='flex justify-center mt-6'>
+            <button
+              type='submit'
+              className='w-[263px] h-[56px] bg-[#9378FF] rounded-full shadow-lg text-white text-[18px] leading-[21px] font-medium'
+            >
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 };
 

@@ -5,7 +5,9 @@ import { RootState } from '../store';
 
 const Home: React.FC = () => {
   const router = useRouter();
-  const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
+  const isAuthenticated = useSelector(
+    (state: RootState) => state.auth.isAuthenticated
+  );
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -16,8 +18,8 @@ const Home: React.FC = () => {
   }, [isAuthenticated, router]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-purple-50">
-      <h1 className="text-3xl font-bold">Redirecting...</h1>
+    <div className='min-h-[90vh] flex items-center justify-center bg-purple-50'>
+      <h1 className='text-3xl font-bold'>Redirecting...</h1>
     </div>
   );
 };

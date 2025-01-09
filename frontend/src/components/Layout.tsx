@@ -1,14 +1,11 @@
-import Header from './Header';
-
 import { ReactNode } from 'react';
+import Header from './Header';
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="min-h-screen bg-purple-100">
+    <div className='bg-white min-h-screen'>
       <Header />
-      <main className="p-6">
-        {children}
-      </main>
+      <main className='flex justify-center py-8'>{children}</main>
     </div>
   );
 };

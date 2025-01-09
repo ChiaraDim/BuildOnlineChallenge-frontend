@@ -4,7 +4,10 @@ interface LoginResponse {
   token: string;
 }
 
-export const loginUser = async (email: string, password: string): Promise<LoginResponse> => {
+export const loginUser = async (
+  email: string,
+  password: string
+): Promise<LoginResponse> => {
   const { data } = await axiosInstance.post('/api/login', { email, password });
   return data;
 };
