@@ -16,7 +16,8 @@
     "noEmit": true,
     "incremental": true,
     "module": "esnext",
-    "isolatedModules": true
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
