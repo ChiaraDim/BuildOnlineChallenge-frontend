@@ -67,7 +67,7 @@ const Login: React.FC = () => {
                 </div>
               </div>
               <div className='flex justify-center py-14'>
-                <BaseButton type='submit' disabled={isSubmitting}>
+              <BaseButton size="lg" variant="primary">
                   {isSubmitting ? 'Logging in...' : 'Login'}
                 </BaseButton>
               </div>
