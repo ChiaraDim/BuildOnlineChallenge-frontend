@@ -5,7 +5,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div className='bg-white min-h-screen'>
       <Header />
-      <main className='flex justify-center py-8'>{children}</main>
+      <main className='w-full justify-center'>{children}</main>
     </div>
   );
 };

@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { loginUser } from '../api/auth';
+import BaseButton from 'components/shared/BaseButton';
+import BaseInput from 'components/shared/BaseInput';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -24,30 +26,29 @@ const Login: React.FC = () => {
       <Head>
         <title>Login | BuildOnline</title>
       </Head>
-      <div className='min-h-[90vh] bg-white flex flex-col items-center pt-12'>
-        <h1 className='text-center font-display font-extrabold text-[39px] leading-[52px] text-[#120E21] mb-8'>
+      <div className='flex flex-col justify-center items-center bg-white py-64 px-32'>
+        <h1 className='text-center font-display font-extrabold text-[39px] leading-[100px] text-[#120E21] mb-12'>
           Welcome
         </h1>
-        <form onSubmit={handleLogin} className='w-full max-w-[527px] space-y-8'>
-          <div className='space-y-4'>
-            <input
+        <form onSubmit={handleLogin} className='w-full max-w-[800px] space-y-8'>
+          <div className='space-y-8'>
+            <BaseInput
               type='email'
               placeholder='john@doe.com'
-              className='w-full h-[56px] rounded-lg bg-[#FBEEFF] text-[#99879D] text-[16px] px-4'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className='w-full h-[56px] max-w-[755px] rounded-lg bg-[#FBEEFF] text-[#99879D] text-[16px] px-9'
             />
-            <input
+            <BaseInput
               type='password'
               placeholder='********'
-              className='w-full h-[56px] rounded-lg bg-[#FBEEFF] text-[#99879D] text-[16px] px-4'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className='w-full h-[56px] max-w-[755px] rounded-lg bg-[#FBEEFF] text-[#99879D] text-[16px] px-9'
             />
           </div>
-          <div className='flex justify-center mt-6'>
-            <button
-              type='submit'
-              className='w-[263px] h-[56px] bg-[#9378FF] rounded-full shadow-lg text-white text-[18px] leading-[21px] font-medium'
-            >
-              Login
-            </button>
+          <div className='flex justify-center py-14'>
+            <BaseButton type='submit'>Login</BaseButton>
           </div>
         </form>
       </div>
