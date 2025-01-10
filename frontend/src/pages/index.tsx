@@ -1,18 +1,27 @@
-import Link from 'next/link'
-import Button from '../components/Button'
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store';
 
-export default function Home() {
+const Home: React.FC = () => {
+  const router = useRouter();
+  const isAuthenticated = useSelector(
+    (state: RootState) => state.auth.isAuthenticated
+  );
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      router.push('/login');
+    } else {
+      router.push('/contacts');
+    }
+  }, [isAuthenticated, router]);
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 p-6">
-      <h1 className="text-5xl font-extrabold text-gray-900 mb-4">
-        Welcome to the Contact Management App
-      </h1>
-      <p className="text-lg text-gray-700 mb-8">
-        Manage all your contacts in one place.
-      </p>
-      <Link href="/login">
-        <Button text="Login" />
-      </Link>
+    <div className='min-h-[90vh] flex items-center justify-center bg-purple-50'>
+      <h1 className='text-3xl font-bold'>Redirecting...</h1>
     </div>
-  )
-}
+  );
+};
+
+export default Home;

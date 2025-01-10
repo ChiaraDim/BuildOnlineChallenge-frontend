@@ -1,8 +1,7 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript", "plugin:prettier/recommended"],
-  "plugins": ["@typescript-eslint"],
+  "extends": "next/core-web-vitals",
   "rules": {
-    "@typescript-eslint/no-unused-vars": ["warn"],
-    "prettier/prettier": ["error"]
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"]
   }
 }
