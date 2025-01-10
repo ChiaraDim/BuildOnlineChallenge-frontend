@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import logo from '../../public/logo.svg';
 
 const Header = () => {
   return (
@@ -6,10 +8,7 @@ const Header = () => {
       <div className='flex justify-between items-center'>
         {/* Logo */}
         <div className='flex items-center gap-3'>
-          <div className='w-10 h-10 bg-gray-300 rounded-full' />
-          <span className='text-2xl font-bold bg-gradient-to-r from-gray-700 to-black bg-clip-text text-transparent'>
-            BuildOnline
-          </span>
+          <Image src={logo} alt="BuildOnline Logo" width={120} height={40} />
         </div>
 
         {/* Navigation Links */}

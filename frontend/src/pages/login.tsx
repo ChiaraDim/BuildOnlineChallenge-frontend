@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { Formik, Form, Field } from 'formik';
-import Yup from 'yup';
+import * as Yup from 'yup';
 import { loginUser } from '../api/auth';
 import BaseButton from 'components/shared/BaseButton';
 import BaseInput from 'components/shared/BaseInput';
