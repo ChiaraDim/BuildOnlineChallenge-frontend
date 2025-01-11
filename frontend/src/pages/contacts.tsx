@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { sampleMessages } from 'utils/messages';
 import ContactCard from '../components/contacts/ContactCard';
+import { PlusIcon } from '@heroicons/react/solid';
 
 interface Contact {
   id: number;
@@ -48,11 +49,23 @@ const ContactsPage: React.FC = () => {
     contact.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const handleAddContactClick = () => {
+    router.push('/add-contact');
+  };
+
   return (
     <div className='w-[95%] max-w-[1440px] mx-auto px-4 py-8 pt-32'>
       <div className='space-y-14'>
-        {/* Title */}
-        <h1 className='text-4xl font-bold'>Contacts</h1>
+        {/* Title and Plus Icon */}
+        <div className='flex justify-between items-center'>
+          <h1 className='text-4xl font-bold'>Contacts</h1>
+          <button
+            onClick={handleAddContactClick}
+            title='Add Contact'
+          >
+            <PlusIcon className='h-6 w-24 text-[#000000]' />
+          </button>
+        </div>
 
         {/* Search Bar */}
         <div className='relative w-full max-w-[1368px] mx-auto'>
@@ -63,7 +76,7 @@ const ContactsPage: React.FC = () => {
             onChange={(e) => setSearchQuery(e.target.value)}
             className='input-search'
           />
-          <div className='absolute right-6 top-[12px] w-5 h-5'>
+          <div className='absolute right-10 top-[12px] w-5 h-5'>
             <Image
               src='/searchIcon.svg'
               alt='Search icon'
