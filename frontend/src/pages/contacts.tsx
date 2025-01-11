@@ -50,7 +50,7 @@ const ContactsPage: React.FC = () => {
   );
 
   const handleAddContactClick = () => {
-    router.push('/add-contact');
+    router.push('/addContact');
   };
 
   return (
