@@ -1,7 +1,6 @@
 import axiosInstance from './axiosInstance';
 
 interface Contact {
-    id: number;
     name: string;
     address: string;
     email: string;
@@ -11,6 +10,10 @@ interface Contact {
 
 export const getContacts = async (): Promise<Contact[]> => {
   const { data } = await axiosInstance.get('/api/contacts');
-  console.log(data.contacts);
   return data.contacts;
+};
+
+export const addContact = async (contact: Contact): Promise<void> => {
+  console.log(contact);
+  const { data } = await axiosInstance.post('/api/contacts', contact);
 };
