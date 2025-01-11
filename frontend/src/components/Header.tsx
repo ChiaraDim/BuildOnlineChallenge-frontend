@@ -5,7 +5,7 @@ import BaseButton from './shared/BaseButton';
 
 const Header = () => {
   return (
-    <div className='w-[95%] max-w-[1440px] bg-[#FBEEFF] rounded-[30px] px-10 py-6 mx-auto mt-12'>
+    <div className='w-[95%] max-w-[1440px] bg-[#FBEEFF] rounded-[30px] px-10 py-4 mx-auto mt-12'>
       <div className='flex justify-between items-center'>
         {/* Logo */}
         <div className='flex items-center gap-3'>

@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { getContacts } from '../api/contacts';
+import { getContacts } from '../../api/contacts';
 import { useSelector } from 'react-redux';
-import { RootState } from '../store';
+import { RootState } from '../../store';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { sampleMessages } from 'utils/messages';
-import ContactCard from '../components/contacts/ContactCard';
+import ContactCard from '../../components/contacts/ContactCard';
 import { PlusIcon } from '@heroicons/react/solid';
 
 interface Contact {
-  id: number;
   name: string;
   address: string;
   email: string;
@@ -94,8 +93,9 @@ const ContactsPage: React.FC = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
             {filteredContacts.map((contact) => (
               <ContactCard
-                key={contact.id}
+                key={contact.email}
                 name={contact.name}
+                email={contact.email}
                 profileImage={contact.profileImage}
                 message={sampleMessages[Math.floor(Math.random() * sampleMessages.length)]}
               />

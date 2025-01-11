@@ -57,6 +57,46 @@ const AddContact: React.FC = () => {
           <Form className='space-y-8'>
             <div className='bg-[#F8F8F8] p-10 rounded-[30px]'>
               <div className='grid grid-cols-2 gap-8'>
+              <div className='col-span-2 flex flex-col items-center'>
+                  <label className='block mb-4 text-lg text-[#120E21] font-bold text-black'>
+                    Profile Picture
+                  </label>
+
+                  {/* Profile Picture Preview */}
+                  <div className='w-32 h-32 rounded-full overflow-hidden border-4 border-[#9378FF] bg-[#F0F0F0] flex items-center justify-center mb-4'>
+                    {profileImage ? (
+                      <img
+                        src={profileImage}
+                        alt='Profile Preview'
+                        className='object-cover w-full h-full'
+                      />
+                    ) : (
+                      <span className='text-[#99879D]'>No Image</span>
+                    )}
+                  </div>
+
+                  {/* File Upload Input */}
+                  <div className='relative w-full max-w-[300px]'>
+                    <input
+                      type='file'
+                      accept='image/*'
+                      id='profile-upload'
+                      className='hidden'
+                      onChange={(e) => handleImageUpload(e, setFieldValue)}
+                    />
+                    <label
+                      htmlFor='profile-upload'
+                      className='block bg-[#FBEEFF] rounded-lg px-4 py-2 h-[56px] flex justify-between items-center cursor-pointer'
+                    >
+                      <span className='text-[#99879D]'>Upload file</span>
+                      <img
+                        src='/uploadIcon.svg'
+                        alt='Upload Icon'
+                        className='w-6 h-6 text-[#99879D]'
+                      />
+                    </label>
+                  </div>
+                </div>
                 <div>
                   <label className='block mb-2 text-lg text-[#120E21] font-bold text-black'>Full Name</label>
                   <Field
@@ -104,47 +144,6 @@ const AddContact: React.FC = () => {
                   {touched.phoneNumber && errors.phoneNumber && (
                     <p className='text-red-500 text-sm mt-1'>{errors.phoneNumber}</p>
                   )}
-                </div>
-
-                <div className='col-span-2 flex flex-col items-center'>
-                  <label className='block mb-4 text-lg text-[#120E21] font-bold text-black'>
-                    Profile Picture
-                  </label>
-
-                  {/* Profile Picture Preview */}
-                  <div className='w-32 h-32 rounded-full overflow-hidden border-4 border-[#9378FF] bg-[#F0F0F0] flex items-center justify-center mb-4'>
-                    {profileImage ? (
-                      <img
-                        src={profileImage}
-                        alt='Profile Preview'
-                        className='object-cover w-full h-full'
-                      />
-                    ) : (
-                      <span className='text-[#99879D]'>No Image</span>
-                    )}
-                  </div>
-
-                  {/* File Upload Input */}
-                  <div className='relative w-full max-w-[300px]'>
-                    <input
-                      type='file'
-                      accept='image/*'
-                      id='profile-upload'
-                      className='hidden'
-                      onChange={(e) => handleImageUpload(e, setFieldValue)}
-                    />
-                    <label
-                      htmlFor='profile-upload'
-                      className='block bg-[#FBEEFF] rounded-lg px-4 py-2 h-[56px] flex justify-between items-center cursor-pointer'
-                    >
-                      <span className='text-[#99879D]'>Upload file</span>
-                      <img
-                        src='/uploadIcon.svg'
-                        alt='Upload Icon'
-                        className='w-6 h-6 text-[#99879D]'
-                      />
-                    </label>
-                  </div>
                 </div>
               </div>
             </div>

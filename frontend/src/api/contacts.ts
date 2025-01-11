@@ -13,6 +13,11 @@ export const getContacts = async (): Promise<Contact[]> => {
   return data.contacts;
 };
 
+export const getContactByEmail = async (email: string): Promise<Contact> => {
+  const { data } = await axiosInstance.get(`/api/contacts/${email}`);
+  return data.contact;
+};
+
 export const addContact = async (contact: Contact): Promise<void> => {
   console.log(contact);
   const { data } = await axiosInstance.post('/api/contacts', contact);
