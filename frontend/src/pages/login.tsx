@@ -1,13 +1,16 @@
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/router'; 
 import Head from 'next/head';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch } from 'react-redux';
+import { setAuthToken } from '../store/authSlice';
 import { loginUser } from '../api/auth';
 import BaseButton from 'components/shared/BaseButton';
 import BaseInput from 'components/shared/BaseInput';
 
 const Login: React.FC = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const validationSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email format').required('Email is required'),
@@ -29,7 +32,11 @@ const Login: React.FC = () => {
           onSubmit={async (values, { setSubmitting }) => {
             try {
               const { token } = await loginUser(values.email, values.password);
+              
               localStorage.setItem('auth_token', token);
+              
+              dispatch(setAuthToken(token));
+
               router.push('/contacts');
             } catch (error) {
               alert('Invalid login credentials');
@@ -67,7 +74,7 @@ const Login: React.FC = () => {
                 </div>
               </div>
               <div className='flex justify-center py-14'>
-              <BaseButton size="lg" variant="primary">
+                <BaseButton size="lg" variant="primary" type="submit" disabled={isSubmitting}>
                   {isSubmitting ? 'Logging in...' : 'Login'}
                 </BaseButton>
               </div>

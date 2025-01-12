@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@babel/preset-react": "^7.26.3",
+    "@heroicons/react": "^1.0.6",
     "@reduxjs/toolkit": "^2.3.0",
     "axios": "^1.7.9",
     "formik": "^2.4.6",
