@@ -35,6 +35,7 @@ const AddContact: React.FC = () => {
 
       <Formik
         initialValues={{
+          id: 0,
           name: '',
           address: '',
           phoneNumber: '',
@@ -92,7 +93,7 @@ const AddContact: React.FC = () => {
                       <img
                         src='/uploadIcon.svg'
                         alt='Upload Icon'
-                        className='w-6 h-6 text-[#99879D]'
+                        className='w-5 h-5 text-[#99879D]'
                       />
                     </label>
                   </div>
