@@ -20,8 +20,15 @@ const ContactDetails: React.FC = () => {
 
           const randomIndex = Math.floor(Math.random() * sampleRoles.length);
           setRandomRole(sampleRoles[randomIndex]);
-        } catch (error) {
+        } catch (error: any) {
           console.error('Error fetching contact:', error);
+          if (error.response?.status === 404) {
+            alert('Contact not found. Please verify the email.');
+          } else if (error.response?.status === 500) {
+            alert('Server error. Please try again later.');
+          } else {
+            alert('An unexpected error occurred. Please try again.');
+          }
         } finally {
           setLoading(false);
         }
@@ -66,7 +73,7 @@ const ContactDetails: React.FC = () => {
         {/* Contact Name and Role */}
         <div className='text-center mt-9'>
           <h1 className='text-3xl font-bold'>{contact.name || 'No Name Provided'}</h1>
-          <p className='text-lg text-gray-600 mt-4'>{randomRole}</p>
+          <p className='text-lg text-gray-600 mt-4'>{randomRole}</p> {/* You can make this dynamic */}
         </div>
 
         {/* Contact Details */}

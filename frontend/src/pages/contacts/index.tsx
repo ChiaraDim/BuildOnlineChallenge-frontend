@@ -5,7 +5,7 @@ import { RootState } from '../../store';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { sampleMessages } from 'utils/messages';
-import ContactCard from '../../components/contacts/ContactCard';
+import ContactCard from '../../components/contacts/contactCard';
 import { PlusIcon } from '@heroicons/react/solid';
 
 interface Contact {
@@ -34,8 +34,13 @@ const ContactsPage: React.FC = () => {
       try {
         const contactsData = await getContacts();
         setContacts(contactsData);
-      } catch (error) {
+      } catch (error: any) {
         console.error('Failed to fetch contacts:', error);
+        if (error.response?.status === 500) {
+          alert('Server error. Please try again later.');
+        } else {
+          alert('Failed to load contacts. Please check your connection and try again.');
+        }
       } finally {
         setLoading(false);
       }

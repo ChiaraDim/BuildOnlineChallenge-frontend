@@ -5,8 +5,8 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { setAuthToken } from '../store/authSlice';
 import { loginUser } from '../api/auth';
-import BaseButton from 'components/shared/BaseButton';
-import BaseInput from 'components/shared/BaseInput';
+import BaseButton from 'components/shared/baseButton';
+import BaseInput from 'components/shared/baseInput';
 
 const Login: React.FC = () => {
   const router = useRouter();
@@ -29,7 +29,7 @@ const Login: React.FC = () => {
         <Formik
           initialValues={{ email: '', password: '' }}
           validationSchema={validationSchema}
-          onSubmit={async (values, { setSubmitting }) => {
+          onSubmit={async (values, { setSubmitting, setFieldError }) => {
             try {
               const { token } = await loginUser(values.email, values.password);
               
@@ -38,8 +38,14 @@ const Login: React.FC = () => {
               dispatch(setAuthToken(token));
 
               router.push('/contacts');
-            } catch (error) {
-              alert('Invalid login credentials');
+            } catch (error: any) {
+              if (error.response?.status === 401) {
+                alert('Incorrect email or password. Please try again.');
+              } else if (error.response?.status === 500) {
+                alert('Server error. Please try again later.');
+              } else {
+                alert('An unexpected error occurred. Please try again.');
+              }
             } finally {
               setSubmitting(false);
             }
