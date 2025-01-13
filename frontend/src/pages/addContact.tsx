@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import BaseInput from 'components/shared/baseInput';
-import BaseButton from 'components/shared/BaseButton';
+import BaseButton from 'components/shared/baseButton';
 import { addContact } from '../api/contacts';
 
 const AddContact: React.FC = () => {

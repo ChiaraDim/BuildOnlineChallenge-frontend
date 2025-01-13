@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import logo from '../../public/logo.svg';
-import BaseButton from './shared/BaseButton';
+import BaseButton from './shared/baseButton';
 
 const Header = () => {
   return (

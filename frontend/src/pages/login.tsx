@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { setAuthToken } from '../store/authSlice';
 import { loginUser } from '../api/auth';
-import BaseButton from 'components/shared/BaseButton';
+import BaseButton from 'components/shared/baseButton';
 import BaseInput from 'components/shared/baseInput';
 
 const Login: React.FC = () => {

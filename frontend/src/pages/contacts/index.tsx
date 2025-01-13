@@ -5,7 +5,7 @@ import { RootState } from '../../store';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { sampleMessages } from 'utils/messages';
-import ContactCard from '../../components/contacts/ContactCard';
+import ContactCard from '../../components/contacts/contactCard';
 import { PlusIcon } from '@heroicons/react/solid';
 
 interface Contact {
