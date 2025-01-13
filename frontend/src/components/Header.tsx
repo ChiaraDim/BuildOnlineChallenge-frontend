@@ -19,7 +19,7 @@ const Header = () => {
               Contacts
             </span>
           </Link>
-          <Link href='/notes'>
+          <Link href='/contacts'>
             <span className='text-lg font-medium bg-gradient-to-r from-[#3A3A3A] to-black bg-clip-text text-transparent leading-[40px] cursor-pointer'>
               Notes
             </span>
