@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@900&display=swap');
+
+body {
+  @apply font-sans;
+  font-family: 'Public Sans', sans-serif;
+}
+
+/* Main titles */
+h1, h2 {
+  font-family: 'Red Hat Display', sans-serif;
+}
+
+header {
+  @apply bg-[#FBEEFF] rounded-[30px] shadow-lg flex justify-between items-center py-6 px-10;
+}
+
+/* Styling for inputs */
+input {
+  @apply border-none outline-none;
+}
+
+.input-search {
+  @apply w-full h-[45px] bg-[#EFEFEF] border border-[#FBEEFF] rounded-lg text-[#99879D] text-[16px] px-4 pl-10 placeholder-[#99879D] focus:outline-none focus:ring-2 focus:ring-[#f0eded];
+}
+
+/* Styling for buttons */
+button {
+  @apply cursor-pointer transition duration-300 ease-in-out;
+}
+
+.btn-primary {
+  @apply shadow-lg font-medium rounded-full transition-all duration-300;
+}
+
+.btn-base {
+  @apply bg-[#9378FF] text-white shadow-lg font-medium rounded-full hover:bg-[#846ce5] transition-all;
+}
+
+.btn-sm {
+  @apply px-4 py-2 text-[14px];
+}
+
+.btn-md {
+  @apply px-6 py-[10px] text-[16px];
+}
+
+.btn-lg {
+  @apply px-8 py-4 text-[18px];
+}
