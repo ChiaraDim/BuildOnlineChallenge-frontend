@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import BaseInput from 'components/shared/BaseInput';
+import BaseInput from 'components/shared/baseInput';
 import BaseButton from 'components/shared/BaseButton';
 import { addContact } from '../api/contacts';
 
@@ -12,7 +12,7 @@ const AddContact: React.FC = () => {
 
   const validationSchema = Yup.object({
     name: Yup.string().required('Full name is required'),
-    address: Yup.string(),
+    address: Yup.string().required('Address is required'),
     phoneNumber: Yup.string().required('Phone number is required'),
     email: Yup.string().email('Invalid email format').required('Email is required'),
   });
@@ -119,6 +119,9 @@ const AddContact: React.FC = () => {
                     placeholder='e.g., 123 Main St, Springfield'
                     className='w-full h-[56px] max-w-[755px] rounded-lg bg-[#FBEEFF] text-[#99879D] text-[16px] px-9'
                   />
+                  {touched.address && errors.address && (
+                    <p className='text-red-500 text-sm mt-2'>{errors.address}</p>
+                  )}
                 </div>
 
                 <div>
@@ -149,7 +152,7 @@ const AddContact: React.FC = () => {
               </div>
             </div>
 
-            {/* Save Button Outside of the Card */}
+            {/* Save Button */}
             <div className='flex justify-center py-14'>
               <BaseButton size='lg' variant='primary' type='submit' disabled={isSubmitting}>
                 {isSubmitting ? 'Creating...' : 'Create'}

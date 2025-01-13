@@ -34,8 +34,13 @@ const ContactsPage: React.FC = () => {
       try {
         const contactsData = await getContacts();
         setContacts(contactsData);
-      } catch (error) {
+      } catch (error: any) {
         console.error('Failed to fetch contacts:', error);
+        if (error.response?.status === 500) {
+          alert('Server error. Please try again later.');
+        } else {
+          alert('Failed to load contacts. Please check your connection and try again.');
+        }
       } finally {
         setLoading(false);
       }

@@ -6,25 +6,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@900&display=swap');
 
-/* Global body styling */
 body {
   @apply font-sans;
   font-family: 'Public Sans', sans-serif;
 }
 
-/* Styling for h1 (main titles) */
+/* Main titles */
 h1, h2 {
   font-family: 'Red Hat Display', sans-serif;
 }
 
-/* Styling for the header */
 header {
   @apply bg-[#FBEEFF] rounded-[30px] shadow-lg flex justify-between items-center py-6 px-10;
 }
 
-/* Styling for input fields */
+/* Styling for inputs */
 input {
   @apply border-none outline-none;
+}
+
+.input-search {
+  @apply w-full h-[45px] bg-[#EFEFEF] border border-[#FBEEFF] rounded-lg text-[#99879D] text-[16px] px-4 pl-10 placeholder-[#99879D] focus:outline-none focus:ring-2 focus:ring-[#f0eded];
 }
 
 /* Styling for buttons */
@@ -32,17 +34,14 @@ button {
   @apply cursor-pointer transition duration-300 ease-in-out;
 }
 
-/* Primary button style */
 .btn-primary {
   @apply shadow-lg font-medium rounded-full transition-all duration-300;
 }
 
-/* Generic Button Style */
 .btn-base {
   @apply bg-[#9378FF] text-white shadow-lg font-medium rounded-full hover:bg-[#846ce5] transition-all;
 }
 
-/* Size Modifiers */
 .btn-sm {
   @apply px-4 py-2 text-[14px];
 }
@@ -53,8 +52,4 @@ button {
 
 .btn-lg {
   @apply px-8 py-4 text-[18px];
-}
-
-.input-search {
-  @apply w-full h-[45px] bg-[#EFEFEF] border border-[#FBEEFF] rounded-lg text-[#99879D] text-[16px] px-4 pl-10 placeholder-[#99879D] focus:outline-none focus:ring-2 focus:ring-[#f0eded];
 }
